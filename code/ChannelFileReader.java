@@ -47,7 +47,7 @@ public class ChannelFileReader
         return fileLength;
     }
  
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException ,UnsupportedEncodingException {
         ChannelFileReader reader = new ChannelFileReader("xxx", 65536); //读取10G目标文件，读取指定的大小；
     
         while (reader.read() != -1) ;
@@ -68,7 +68,7 @@ public class ChannelFileReader
            
            FileOutputStream outputStream = new FileOutputStream(theurl, true); //文件内容追加模式--推荐
 		FileChannel channel = outputStream.getChannel();
-		ByteBuffer byteBuffer = ByteBuffer.allocate(String.valueOf(num));
+		ByteBuffer byteBuffer = ByteBuffer.allocate(65536);
 		byteBuffer.put(String.valueOf(num).getBytes("utf-8"));
 		byteBuffer.flip();//读取模式转换为写入模式
 		channel.write(byteBuffer);
@@ -87,7 +87,7 @@ public class ChannelFileReader
     
      }
 
-     
+
     }
 
 
