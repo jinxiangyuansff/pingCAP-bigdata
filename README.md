@@ -16,8 +16,10 @@
 
 具体代码实现：
 
-1.先在ChannelFileReader 把大文件按 hash(url)%50 得到50份小文件
-2.然后每一份小文件用hashMap统计url出现次数，并各自创建一个size为100的小顶堆。堆节点为hashmap的entry节点。
+1.先在ChannelFileReader 把大文件按 hash(url)%50 得到50份小文件  
+
+2.然后每一份小文件用hashMap统计url出现次数，并各自创建一个size为100的小顶堆。堆节点为hashmap的entry节点。  
+
 3.50个小顶堆两两合并，最终得到一个总的size为100的小顶堆
 
 
